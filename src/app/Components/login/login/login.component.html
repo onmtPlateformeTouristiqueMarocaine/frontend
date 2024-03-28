@@ -1,0 +1,39 @@
+
+<div class="bg-gray-200/60 w-full relative flex min-h-screen flex-row justify-center overflow-hidden py-6 px-4 sm:py-12">
+
+  <div class="w-[650px] relative bg-white grid grid-cols-12 grid-rows-6 p-4 border shadow-md rounded-xl">
+    <div class="flex flex-col justify-around  col-start-2 col-end-12 row-start-2 row-end-6">
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+      <img class="h-20 mx-auto mb-2" src="https://maghreb.simplonline.co/_next/image?url=https%3A%2F%2Fsimplonline-v3-prod.s3.eu-west-3.amazonaws.com%2Fmedia%2Fimage%2Fpng%2Fonmt-65ee44367373d211249668.png&w=1280&q=75" alt="logo">
+      <div class="m-5 text-center ">
+        <div class="border-custPurple">
+          <input formControlName="email" class="w-full rounded-lg border bg-gray-50 outline-none py-3 px-2"  id="email" type="email" name="email"
+                 placeholder="Email" required>
+        </div>
+          <div *ngIf="email?.invalid && email?.touched" class="text-red-500 text-sm">
+            <div *ngIf="email?.errors?.['required']">Email is required.</div>
+            <div *ngIf="email?.errors?.['email']">Invalid email format.</div>
+          </div>
+      </div>
+      <div class="m-5 text-center ">
+        <div class=" ">
+          <input formControlName="password" class="w-full rounded-lg border bg-gray-50 outline-none py-3 px-2" type="password" name="password"
+                 placeholder="Password" id="password" required>
+        </div>
+          <div *ngIf="password?.invalid && password?.touched" class="text-red-500 text-sm">
+            <div *ngIf="password?.errors?.['required']">Password is required.</div>
+          </div>
+        </div>
+      <div class="w-full flex justify-center">
+        <button type="submit"
+                class="w-full mx-4 inline-block border rounded-lg bg-purple-600 text-gray-500' : 'bg-custGray text-black'}}  py-3 text-white font-semibold"
+        >LOGIN
+        </button>
+      </div>
+      </form>
+
+<div *ngIf="error">{{ error }}</div>
+    </div>
+  </div>
+
+</div>
